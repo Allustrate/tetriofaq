@@ -87,112 +87,114 @@
 	<img id="major_logo" src="res/logo.png">
 
 <div id="toc">
-	<h1>CONTENTS</h1>
+	<h1>目录</h1>
 	<a href="#tetraleague">TETRA LEAGUE</a>
-	<a href="#rd" class="indent">rating deviation</a>
-	<a href="#rankcutoffs" class="indent">rank cutoffs</a>
-	<a href="#handling">HANDLING</a>
-	<a href="#arr" class="indent">auto repeat rate</a>
-	<a href="#das" class="indent">delayed auto shift</a>
-	<a href="#dcd" class="indent">DAS cut delay</a>
-	<a href="#sdf" class="indent">soft drop factor</a>
-	<a href="#sonicdrop" class="indent2">sonic drop</a>
-	<a href="#srs">SUPER ROTATION SYSTEM</a>
-	<a href="#zspins" class="indent">Z&amp;S spins</a>
-	<a href="#setcommand"><code>/set</code> COMMAND USAGE</a>
-	<a href="#setgen" class="indent">automatic solutions</a>
-	<a href="#manualset" class="indent">manual reference</a>
-	<a href="#ingeneral">IN GENERAL</a>
-	<a href="#fire" class="indent">fire</a>
-	<a href="#characters" class="indent">character system</a>
-	<a href="#secretgrade" class="indent">badges</a>
+	<a href="#rd" class="indent">评分偏差值</a>
+	<a href="#rankcutoffs" class="indent">段位划分</a>
+	<a href="#handling">操作参数</a>
+	<a href="#arr" class="indent">重复移动延迟</a>
+	<a href="#das" class="indent">自动移动延迟</a>
+	<a href="#dcd" class="indent">DAS 打断延迟</a>
+	<a href="#sdf" class="indent">软降倍率</a>
+	<a href="#sonicdrop" class="indent2">瞬降</a>
+	<a href="#srs">SRS</a>
+	<a href="#zspins" class="indent">S-Spin 与 Z-Spin</a>
+	<a href="#setcommand"><code>/set</code> 指令用法</a>
+	<a href="#setgen" class="indent">自动填充</a>
+	<a href="#manualset" class="indent">手动修改</a>
+	<a href="#ingeneral">概括性机制</a>
+	<a href="#fire" class="indent">火力全开</a>
+	<a href="#characters" class="indent">角色系统</a>
+	<a href="#secretgrade" class="indent">徽章</a>
 </div>
 
 <span class="itemlist centeralign">
-<a class="topitem" href=".">HOME</a>
-<a class="pageitem firstpageitem" href="./personalization.html">PERSONALIZATION</a>
-<a class="pageitem current" href="">MECHANICS</a>
-<a class="pageitem" href="./troubleshooting.html">TROUBLESHOOTING</a>
-<a class="pageitem" href="./terminology.html">TERMINOLOGY</a>
+<a class="topitem" href=".">首页</a>
+<a class="pageitem firstpageitem" href="./personalization.html">个性化</a>
+<a class="pageitem current" href="">机制</a>
+<a class="pageitem" href="./troubleshooting.html">故障排除</a>
+<a class="pageitem" href="./terminology.html">术语</a>
 </span>
 
 <section id="tetraleague">
 <h1>TETRA LEAGUE</h1>
-    <p>TETRA LEAGUE is TETR.IO's premier matchmaking system featured for free for all registered accounts above level 10. While gameplay is very straightforward, which is just 1v1ing against another player of similar skill, the exact mechanics behind what the various mechanical values are and how the system itself works are often pondered.</p>
-    <p><em>also see:</em></p>
+    <p>TETRA LEAGUE（四联联盟、TL）是 TETR.IO 的排位模式，供所有玩家免费游玩，只需注册账号并达到 10 级即可参与。联盟的赛制十分简单——与相近技能水平的玩家展开单挑对战，但部分玩家可能会好奇该模式底层的工作原理与技术参数，本小节将就一些常见疑问展开解释。</p>
+    <p><em>参见：</em></p>
 <ul>
-    <li>Tenchi's FAQ on
+    <li>Tenchi FAQ 的以下条目（英文）：
     <ol>
-		<li><a class="lna" href="https://tetrio.team2xh.net/?t=faq#decide-rank">how the game decides what rank you are</a></li>
-		<li><a class="lna" href="https://tetrio.team2xh.net/?t=faq#placement">being unranked after playing ten placement matches</a></li>
-		<li><a class="lna" href="https://tetrio.team2xh.net/?t=faq#rank-match">matchmaking with players far from your TR</a></li>
+		<li><a class="lna" href="https://tetrio.team2xh.net/?t=faq#decide-rank">定段机制</a></li>
+		<li><a class="lna" href="https://tetrio.team2xh.net/?t=faq#placement">定级赛后仍无段位</a></li>
+		<li><a class="lna" href="https://tetrio.team2xh.net/?t=faq#rank-match">对手的 TR 和我的差太多</a></li>
 <li>
-    <a class="lna" href="https://tetrio.team2xh.net/?t=faq#inconsistent-ranks">inconsistent ranks</a></ol>
+    <a class="lna" href="https://tetrio.team2xh.net/?t=faq#inconsistent-ranks">对手的段位不合实力</a></ol>
 </li>
-    <li>The Tetris.Wiki on <a class="lna" href="https://tetris.wiki/TETR.IO#TETRA_LEAGUE">the TETRA LEAGUE</a></li>
+    <li><a class="lna" href="https://tetris.huijiwiki.com//wiki/TETR.IO#TL">TETR.IO - 俄罗斯方块中文维基</a></li>
 </ul>
 
-<h2 id="rd">Rating Deviation<span class="shorthand">rd</span></h2>
-	<p style="width: 30%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> Rating Deviation is an extension of <a class="lna tiplink" href="https://en.wikipedia.org/wiki/Glicko_rating_system">Glicko-2</a>, which is TETRA LEAGUE's underlying rating system. Glicko is used in many games and organizations, and was originally created for chess.</p>
-	<p>RD is the number <em>after</em> the <strong>±</strong> symbol in your Glicko rating value. "RD" stands for <strong>R</strong>ating <strong>D</strong>eviation. It is a measurement of "How uncertain the Glicko-2 system is of your rating. Lower is better." <span class="unemphasis">(according to ingame hover text)</span></p>
+<h2 id="rd">评分偏差值<span class="shorthand">rd</span></h2>
+	<p style="width: 30%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> 评分偏差值是 <a class="lna tiplink" href="https://en.wikipedia.org/wiki/Glicko_rating_system">Glicko-2</a> 的一次扩展，其中 Glicko-2 正是 TETRA LEAGUE 使用的评分系统。Glicko 起初用于国际象棋比赛，后被众多游戏与组织用作评分系统。</p>
+	<p>RD 是游戏中 Glicko 评分中<strong>±</strong>之后的数值，其全程是<strong>Rating Deviation</strong>，也即偏差值。偏差值体现了“你 Glicko-2 评分不确定的程度，越低越好。”<span class="unemphasis">（游戏内文本）</span></p>
 
-	<p>RD <em>generally</em> goes down after playing a match. It is possible to <em>gain</em> RD after a match, however. RD limits itself to a value of "60", according to osk, however, some players have  even attained 58 RD. The upper limit of RD is 349, after which, RD will be unable to decay any further.</p>
+	<p>一场排位赛后，偏差值<em>通常</em>会降低，但也有<em>增高</em>的情况。据 osk，偏差值不会低于60，但也有一些玩家达到过58的偏差值。偏差值在达到 349 之后就不会继续增长。</p>
 
-	<p>RD accumulates at a static rate of "1 RD per day, after a week of inactivity." You can tell whether or not your RD is currently "decaying" by navigating to your TETRA CHANNEL Userpage, found at <code>https://ch.tetr.io/u/your-username-here</code> and viewing the Glicko number, looking for an arrow which points in this direction: <span style="color: #F22; font-family: HUN;">Ƿ</span></p>
+	<p>偏差值会在连续七天未进行排位比赛后，以每天一点的固定速率增加。可在四连频道个人用户页 <code>https://ch.tetr.io/u/[username]</code> 中查看你是否处于“不活跃状态”。若你的 Glicko 段位分旁边有 <span style="color: #F22; font-family: HUN;">Ƿ</span> 的符号，则说明你有一周没打排位了。</p>
 
-<h2 id="rankcutoffs">Rank Cutoffs<span class="shorthand">rankcutoffs</span></h2>
-	<p style="width: 25%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> The Discord bots mentioned here may be found in <a class="lna tiplink" href="https://l.tetr.io/discord">the official TETR.IO Discord</a> under the <code>#bot-spam</code> channel/<code>#bbspam</code> thread.</p>
-	<p>Interested in seeing the TETR.IO rank requirements? You can retrieve that projected information from a couple different sites and Discord bots, however, do note that rank cutoffs are volatile, and that most services can only update at a rate of once per every hour, so they do <strong>not</strong> host up-to-date or official information!</p>
-	<p>Here's a small list of places that generate rank cutoffs:</p>
+<h2 id="rankcutoffs">段位划分<span class="shorthand">rankcutoffs</span></h2>
+	<p style="width: 25%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> 本小节提到的 Discord bot 都可通过 <a class="lna tiplink" href="https://l.tetr.io/discord">TETR.IO 官方 Discord</a> 使用，它们位于 <code>#bot-spam</code> 频道，或其下的 <code>#bbspam</code> 子频道.</p>
+	<p>若对 TETR.IO 各段位的分数要求感兴趣，可通过网页或 Discord 机器人等多种渠道查看。但请注意：段位分数要求实时变化，但大部分渠道都只是几个小时更新一次，因此<strong>不能</strong>反映即时、官方的数据。</p>
+	<p>下面给出提供段位分数要求的一些渠道：</p>
 <ul>
-	<li><a class="lna" href="https://tetrio.team2xh.net/?t=ranks">Tenchi's TETR.IO STATS</a> <span class="unemphasis">(Updates infrequently)</span></li>
-	<li><a class="lna" href="https://cankyre.github.io/tetostats/">Cankyre's TetoStats</a></li>
-	<li><b style="color: #2E9BE8;">Ðimentio#0001</b>'s <em style="color: #1FD83A;">Hiyajo Maho#2356</em> <span class="unemphasis">(Computes average statistics, caches results for 1 hour. Invite Hiyajo Maho from <a class="lna tiplink" href="https://www.qcgames.org/bot">this URL</a>.)</span></li>
+	<li><a class="lna" href="https://tetrio.team2xh.net/?t=ranks">Tenchi 的 TETR.IO STATS</a> <span class="unemphasis">（不定期更新）</span></li>
+	<li><a class="lna" href="https://cankyre.github.io/tetostats/">Cankyre 的 TetoStats</a></li>
+	<li><b style="color: #2E9BE8;">Ðimentio#0001</b> 的 <em style="color: #1FD83A;">Hiyajo Maho#2356</em> <span class="unemphasis">（统计平均数据，每小时更新一次，可通过<a class="lna tiplink" href="https://www.qcgames.org/bot">该链接</a>邀请到自己的服务器。）</span></li>
 	<ul>
-		<li>Send <code>>tetoranks</code> in an appropriate channel. You can specify the specific rank you'd like to see with <code>>tetoranks &lt;x></code>. <span class=unemphasis>(where &lt;x> is your desired rank's letter)</span></li>
+		<li>在恰当的频道发送<code>>tetoranks</code> 可通过<code>>tetoranks &lt;x></code>指定查询任意段位的平均数据，<span class="unemphasis">其中 &lt;x> 是想要查询的段位。</span></li>
 	</ul>
-	<li><em style="color: #FFD800;">bbEngine#8989</em> <span class="unemphasis">(Private bot. Use in the <code>#bbspam</code> thread under <code>#bot-spam</code>. Generates cutoffs using <a class="lna tiplink" href="https://gist.github.com/ZaptorZap/e8881170180f7d61b9efe71aee288861">this bash script</a>.)<span></li>
+	<li><em style="color: #FFD800;">bbEngine#8989</em> <span class="unemphasis">（私人 bot，在 #bbspam 子频道下使用，使用<a class="lna tiplink" href="https://gist.github.com/ZaptorZap/e8881170180f7d61b9efe71aee288861">该脚本</a>查询段位划分。）<span></li>
 	<ul>
-		<li>Send <code>.trall</code> to view the cutoffs of all ranks.</li>
-		<li>Send <code>.tr &lt;username></code> to view a difference from the given rank to the next or previous rank in TR.</li>
+		<li><code>.trall</code>：查看所有段位的分数要求。</li>
+		<li><code>.tr &lt;username></code>：查询到相邻段位的距离，单位为 TR。</li>
 	</ul>
 </ul>
-	<p>For some up-to-date official information, feel free to visit your TETRA CHANNEL userpage found at <code>https://ch.tetr.io/u/your-username-here</code> and inspect the TETRA LEAGUE section. While only vaguely stated, and only shown if ranked, a "progress bar" will be shown below your stats, indicating your global placement, the placement required to reach the next rank, and the placement required to <em>keep your current rank.</em></p>
+	<p>若想获取实时官方信息，请前往你的 TETRA CHANNEL 用户页：<code>https://ch.tetr.io/u/[username]</code>，前往 TETRA LEAGUE 部分。该部分会在发挥数据下方显示一“进度条”，展示你的全球排名以及相邻段位的排名界限。但该进度条较为粗略，且只会显示于定段用户的数据下方。
 </section>
 
 <section id="handling">
-<h1>Handling</h1>
-	<p style="width: 25%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> <b>Tip:</b> you may always test your current handling settings from the <span style="font-family: HUN;">TEST</span> button in the top right of the <span style="font-family: HUN;">HANDLING</span> section!</p>
-    <p>Handling controls how your pieces interact with your sustained input to any of the movement keys. They have a dedicated section in the titular <span style="font-family: HUN;">HANDLING</span> section of the ingame <span style="font-family: HUN;">CONFIG</span>. Below are some short descriptions of these values.</p>
-    <p><em>also see:</em></p>
+<h1>操作参数</h1>
+	<p style="width: 25%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> <b>提示：</b> 您可随时通过 <span style="font-family: HUN;">HANDLING</span> 小节右上角的 <span style="font-family: HUN;">TEST</span> 按钮测试当前的操作参数。</p>
+    <p>操作参数控制玩家持续按键时，方块的移动属性。玩家可在 <span style="font-family: HUN;">CONFIG</span> 设置选单中 <span style="font-family: HUN;">HANDLING</span> 部分调解它们。下面将简要介绍这些参数。
+    <p><em>参见：</em></p>
 <ul>
-	<li><a class="lna" href="https://www.youtube.com/watch?v=rKQZdRu6_g0" title="How to properly set your TETR.IO Handling!">25Pi25's YouTube video</a> summarizing how to set your handling.</li>
-	<li><a class="lna" href="https://cdn.discordapp.com/attachments/813901028394795078/871859207605985300/DAS_and_ARR.gif">This instinctual <code>.gif</code> file</a> everyone keeps sharing to which I cannot attribute to anyone at this point.</li>
-	<li><a class="lna" href="http://tetrio.team2xh.net/?t=faq#handling">Tenchi's FAQ on the difference between TETR.IO and Jstris handling</a>.<ul>
-		<li>A commonly suggested workaround if changing between the two games is really simple, just do some quick addition:</li>
+	<li><a class="lna" href="https://www.youtube.com/watch?v=rKQZdRu6_g0" title="How to properly set your TETR.IO Handling!">YouTube：25Pi25's：How to properly set your TETR.IO Handling!</a>（英语，关于如何正确设置 TETR.IO 操作参数）</li>
+	<li><a class="lna" href="https://cdn.discordapp.com/attachments/813901028394795078/871859207605985300/DAS_and_ARR.gif">一张直白介绍 DAS 与 ARR 的 <code>.gif</code> 动图</a> （Zaptor：所有人都在分享这张图片，但我一直找不到原作者。）</li>
+	<li><a class="lna" href="http://tetrio.team2xh.net/?t=faq#handling">Tenchi 的 FAQ： Jstris 与 TETR.IO 在操作参数上的差异</a>。<ul>
+		<li>简而言之，这两个平台的 DAS 与 ARR 满足以下换算公式：</li>
 </ul></li></ul>
 <figcaption style="margin-top:-15px;margin-left:5em"><code>TETR.IO ARR = Jstris ARR → <strong>TETR.IO DAS = Jstris DAS + Jstris ARR</strong></code></figcaption>
 
 <h2 id="arr">Auto Repeat Rate<span class="shorthand">arr</span></h2>
-	<p><code>[A]</code>uto <code>[R]</code>epeat <code>[R]</code>ate<span class="unemphasis">(lower is faster: 0 is instantaneous)</span>: This slider controls how quickly pieces move around while holding the left or right movement keys. It's well known that an "optimal" ARR is 0: when ARR is this value, pieces teleport instantly upon DAS charge, allowing for extremely fast play. Good <a class="lna" href="https://four.lol/mid-game/finesse" title="Finesse | FOUR">finesse</a> is a must-have if using this handling, however!</p>
+	<p><code>[A]</code>uto <code>[R]</code>epeat <code>[R]</code>ate<span class="unemphasis">（移动重复延迟，越低越快，零为瞬移）</span>：ARR 影响方块在持续按下向左或向右时，方块移动的速率。当 ARR 为零时，方块在 DAS 充能完毕后就会撞墙，这样极大提升了操作速度，因此有人将零 ARR 称为“最优” ARR。然而，其性能几乎只有在<a class = "lna" href="https://tetris.huijiwiki.com/p/3456" title = "极简操作 - 俄罗斯方块中文维基">极简操作</a>下才能得到完全发挥</p>
 
 <h2 id="das">Delayed Auto Shift<span class="shorthand">das</span></h2>
-	<p><code>[D]</code>elayed <code>[A]</code>uto <code>[S]</code>hift<span class="unemphasis">(lower is faster)</span>: This slider controls how long you hold the left or right movement keys before engaging ARR. To put it simply:</p>
+	<p><code>[D]</code>elayed <code>[A]</code>uto <code>[S]</code>hift<span class="unemphasis">（自动移动延迟，越低越快）</span>：ARR 生效前需要持续按下方向键的时间。简而言之：</p>
 <ul>
-	<li>DAS is how long you hold L/R before the piece goes <em>brrrr</em>.</li>
-	<li>ARR is how <em>quickly</em> the piece goes <em>brrrr</em>.</li>
+	<blockquote>Let the bass kick O-----o-o-o-o-o-o-o-o-o-o</strong></code></li>
+	<li><code>O</code> 和第一个 <code>o</code> 的等待时间可理解为 DAS。</li>
+	<li>后续 <code>o</code> 之间的重复时间可理解为 ARR。</li></blockquote>
+	<figcaption>——<a class = "lna" href="https://farter.cn/nav/" title="俄罗斯方块中文导航">俄罗斯方块中文导航</a></figcaption>
 </ul>
-	<p>Optimal DAS values largely differ from player to player, so experiment around with different ones!</p>
+	<p>“最优” DAS 因人而异，所以在实战前请多多尝试不同的参数。</p>
 
 <h2 id="dcd">DAS Cut Delay<span class="shorthand">dcd</span></h2>
-	<p><code>[D]</code>AS <code>[C]</code>ut <code>[D]</code>elay(higher is slower: 0 disables the system): An experimental and complicated handling setting, DAS Cut Delay hasn't seen much use in professional play. DAS Cut Delay introduces a set of pauses to active DAS, every time one of the two following actions occur:</p>
+	<p><code>[D]</code>AS <code>[C]</code>ut <code>[D]</code>elay（DAS 打断延迟，越高越慢，若为零则不生效）：作为一项较复杂的实验性参数，高端玩家很少特意使用 DCD。DAS 打断将在以下情况下生效，打断期间内，DAS 无法充能：</p>
 <div style="display: grid; grid-template-columns: repeat(2, 3fr);align-items: center;" class="gallery">
 <img height="222" style="margin-right: 1em;" src="res/faq/mechanics/dcd-1.gif">
 <img height="239" style="margin-left: 1em;" src="res/faq/mechanics/dcd-2.gif">
-<p class="description" style="border-top: #0060FF solid 2px;border-right: #0060FF solid 2px;margin-top: 4px;">Whenever a piece is rotated.</p>
-<p class="description" style="border-top: #0060FF solid 2px;margin-top: 4px;">Whenever a piece is spawned.</p>
+<p class="description" style="border-top: #0060FF solid 2px;border-right: #0060FF solid 2px;margin-top: 4px;">方块旋转</p>
+<p class="description" style="border-top: #0060FF solid 2px;margin-top: 4px;">新方块生成</p>
 </div>
-	<p>If either of these actions occur, <strong>DAS is "paused"</strong>, or "cut" for the amount of frames DCD is configured to. It primarily targets 0ARR play, and aims to make certain finesse moves possible while keeping DAS charged, as well as reducing possible misdrops.</p>
+	<p>进行上述两种操作时，<strong>DAS 停止充能</strong>一段时间，这段时间即为 DCD。DCD 主要针对 0ARR 环境，旨在让 DAS 充能的情况下完成特定的极简操作。该参数也可以避免操作失误。</p>
 
 <figure>
 	<blockquote>➔ A common value for it would be around 1 or 2 frames.</blockquote>
@@ -200,87 +202,87 @@
 </figure>
 
 <h2 id="sdf">Soft Drop Factor<span class="shorthand">sdf</span></h2>
-	<p><code>[S]</code>oft <code>[D]</code>rop <code>[F]</code>actor(higher is faster: ∞ is instantaneous): This slider controlshow quickly your piece will soft drop, given you are holding the soft drop key. It doesn't necessarily multiply current gravity, as you can still soft drop in zero gravity. <span class="unemphasis">(0 times anything, even infinity, equals 0)</span></p>
-	<p>An optimal value for this would be ∞, as stacks that require partial soft drops to tuck pieces in is just <em>not a good stack.</em> If this functionality is a dealbreaker for you, limiting yourself to 20X or lower, then you have bigger issues to worry about.</p>
+	<p><blockquote>其实应该叫软降速率倍率的……但是太拗口了</blockquote></p>
+	<p><code>[S]</code>oft <code>[D]</code>rop <code>[F]</code>actor（软降倍率，越搞越快：∞ 是瞬降）：该参数控制方块在按下软降时，方块降落的速度。该参数并不一定要乘上当前的重力，毕竟零重力下方块还是可以软降。<span class="unemphasis">（小学数学：零乘任何数都是零，即使是无穷大）</span></p>
+	<p>推荐将这一参数设置为∞，毕竟需要大量软降的堆叠只能算是<em>不太完美的</em><a class="lna" href="https://tetris.huijiwiki.com/p/3451" title="完整堆叠 - 俄罗斯方块中文维基">半完整堆叠</a>。
+	</p>如果你只能适应 20X 以下的软降倍率，那就先好好回去练堆叠吧。</p><!--我承认这里采用了意译，因为原文的 bigger issue太模糊了。 -xb -->
 
-<h3 id="sonicdrop">Sonic Drop<span class="shorthand">sonicdrop</span></h3>
-	<p>To execute a "hard drop without placing the piece", such as those extremely fast T-Spins, turn this slider in the CONFIG to ∞! Then, use your soft drop key as normal: the piece will rocket down to the bottom instantly now!</p>
+<h3 id="sonicdrop">瞬降<span class="shorthand">sonicdrop</span></h3>
+	<p>想要完成“不锁定方块的硬降”，比如快速 T-Spin，就把 SDF 拉到∞吧！这样，一按下软降，方块就会立马接地！</p>
 <img src="res/faq/mechanics/sonicdrop.png" style="width: 100%;">
 </section>
 
 <section id="srs">
 <h1>Super Rotation System</h1>
-    <p>"SRS", or, as this anagram expands to, "<code>[S]</code>uper <code>[R]</code>otation <code>[S]</code>ystem", is the driving force behind how the game handles rotations that intersect the stack. This system has some seemingly inconsistent and unconventional behaviors, especially for certain tucks, so here's some illustrations on such spins.</p>
-    <p><em>also see:</em></p>
+	<p>“SRS”，全称“<code>[S]</code>uper <code>[R]</code>otation <code>[S]</code>ystem”（超级旋转系统），是 TETR.IO 等众多现代方块游戏，处理方块旋转撞墙时如何处理的机制<code>这一机制被称为“踢墙”</code>。SRS 有一些较不符常理的特性，如一些特殊的踢墙。详情请见下文中的一些图片：</p>
+    <p><em>参见俄罗斯方块中文维基的这些内容：</em></p>
 <ul>
-    <li>The Tetris.Wiki on</li><ul>
-		<li><a class="lna" href="https://tetris.wiki/TETR.IO#180_Kicks">TETR.IO's 180 kicks</a></li>
-		<li><a class="lna" href="https://tetris.wiki/TETR.IO#SRS.2B">SRS+</a></li>
-		<li><a class="lna" href="https://tetris.wiki/Super_Rotation_System">SRS in general</a></li></ul>
-    <li><a class="lna" href="https://harddrop.com/wiki/SRS">The Hard Drop Wiki on SRS</a></li>
+	<li><a class="lna" href="https://tetris.huijiwiki.com/wiki/TETR.IO#180度踢墙">TETR.IO 的 180 度踢墙</a></li>
+	<li><a class="lna" href="https://tetris.huijiwiki.com/wiki/TETR.IO#SRS.2B">SRS+</a></li>
+	<li><a class="lna" href="https://tetris.huijiwiki.com/wiki/SRS">SRS</a></li>
 </ul>
 
-<h2 id="zspins">ZS Spins<span class="shorthand">zspins</span></h2>
+<h2 id="zspins">S-Spin 与 Z-Spin<span class="shorthand">zspins</span></h2>
 <div style="float: right;display: grid; grid-template-columns: repeat(2, 3fr);align-items: center;" class="gallery">
 <img align="right" src="res/faq/mechanics/s-spin.gif">
 <img align="right" src="res/faq/mechanics/z-spin.gif">
-<p class="description" style="border-top: #0060FF solid 2px;border-right: #0060FF solid 2px;margin-top: 4px;">CCW, CCW<br>CW, CW</p>
-<p class="description" style="border-top: #0060FF solid 2px;margin-top: 4px;">CW, CW<br>CCW, CCW</p>
+<p class="description" style="border-top: #0060FF solid 2px;border-right: #0060FF solid 2px;margin-top: 4px;">左转、左转<br>右转、右转</p>
+<p class="description" style="border-top: #0060FF solid 2px;margin-top: 4px;">右转、右转<br>左转、左转</p>
 </div>
-	<p>Z and S tucks can be confusing to new players, since they rely on impulsively developed rotation systems which carry somewhat unconventional definitions of symmetry; this system, known as SRS, is likely why you're failing to execute successful Z or S spins.</p>
-	<p><strong>To execute a wall-less Z spin</strong>, starting from the spawn position, press the <strong>counter clockwise</strong> rotation key, then soft drop and press the <strong>counter clockwise</strong> rotation key once more. If there are any walls spanning across both sides, as shown in the second half of this gif, simply reverse the rotations and <em>press the neutral <strong>clockwise</strong> rotation key twice</em>, instead.</p>
+	<p>由于 SRS 在诞生时，设计者并没有考虑太多，只是给“对称”下了几个反常的定义，新玩家可能较难理解 S-Spin 与 Z-Spin，。正是这些定义让他们常常无法完成 S-Spin 与 Z-Spin。</p>
+	<p><strong>如果没有墙，完成 Z-Spin</strong> 需要从初始朝向<strong>逆时针</strong>旋转一次，软降，然后再用<strong>逆时针</strong>把 Z 块塞进去。反之，若两边都有墙（如 gif 的后半部分），就需要<strong>顺时针</strong>旋转两次了。
+	<p style="float: unset;width: 45%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> <b>Tip:</b> 若使用默认键位，那么 <strong>Z-Spin</strong> 就需要按两次 <strong>"z"</strong> 键。
 
-	<p style="float: unset;width: 40%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> <b>Tip:</b> here's an easy way to remember this, assuming you have the default guideline controls: press the <strong>"z"</strong> key twice to <strong>z</strong> spin.</p>
-
-	<p><strong>To execute a wall-less S spin</strong>, starting from the spawn position, press the <strong>clockwise</strong> rotation key, soft drop, and press the <strong>clockwise</strong> rotation key once again. <span class="unemphasis">(Many new players default to <em>only</em> rotating clockwise, as the only feasible key to rotate is the up arrow key, next to all other movement keys. This is why S spins may appear "easier" to a new user.)</span><br />
-	Assuming two walls exists, such as the one shown in the second half of this gif, simply reverse the rotations and <em>press the opposite <strong>counter clockwise</strong> rotation key twice</em>, instead.</p>
+	<p><strong>如果没有墙，完成 S-Spin</strong> 需要从初始朝向<strong>顺时针</strong>旋转一次，软降，然后再用<strong>顺时针</strong>把 S 块塞进去。 <span calss="unemphasis">（大多数新手只会使用上键顺时针单项旋转，所以 S-Spin 对新玩家可能“更简单”。）</span><br />
+	如果两边都有墙（如 gif 的后半部分），就需要调换旋转方向，<em><strong>逆时针</strong>旋转两次</em>。</p>
 </section>
 
 <section id="setcommand">
-<h1><code>/set</code> Command Usage</h1>
-    <p>The ingame <code>/set</code> command has plenty of valid use case scenarios, but at the end of the day, it still is what you make out of it. That said, here's a bunch of reference to make the most out of this command, without straining your hands typing a preset out manually!</p>
+<h1><code>/set</code> 指令用法</h1>
+	<p>游戏中 <code>/set</code> 指令有多重使用场合，大部分由社区玩家开发。了其中主要指令的用法，这样你就不用在游戏中花时间打一大串指令了。</p>
 
-<h2 id="setgen">Automatic Solutions<span class="shorthand">setgen</span></h2>
-<p style="float: right; width: 30%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> TETR.IO itself contains several presets available for custom room hosts. Simply click the very first option in the <span style="font-family: HUN;">GAME</span> tab to access up to 6 presets. Unfortunately, you can't create your own presets quite yet, but the ability to do so in the future is a planned feature.</p>
-	<p>First, we'll go over automated solutions, from least intrusive to most:</p>
+<h2 id="setgen">自动填充<span class="shorthand">setgen</span></h2>
+<p style="float: right; width: 35%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> TETR.IO 为自定义房间的房主提供了若干预设。房主只需前往 <span style="font-family: HUN;">GAME</span> 选项卡中的第一个选项，在六个预设中选择其一即可。玩家现无法创建自定义的预设，但这项功能可能会在将来加入游戏。
+<p>首先将介绍若干自动填充的方法，按对游戏底层代码的影响程度排列，从低到高：</p>
 <ul>
-	<li><a class="lna" href="https://craftxbox.com/" title="craftxbox's homepage">craftxbox</a>'s <a class="lna" href="https://github.com/craftxbox/Autohost/" title="Source repository -- unrecommended for casual users">Continued Autohost project</a> includes several commands for room presets. Please refer to this <a class="lna" href="https://ch.tetr.io/u/craftxbot">ingame bot</a>'s <a class="lna" href="https://gitlab.com/Zudo/autohost/-/wikis/Get-Started">documentation to get started</a>. Once you have your room configured the way you like, use the command <code>!savepreset &lt;name&gt;</code>  to save it as a preset. You can then load the settings in the future with <code>!preset &lt;name&gt;</code>, or delete them with <code>!delpreset &lt;name&gt;</code>. There are a handful of built-in presets that you can view by simply running <code>!preset</code>.</li>
-	<li><a class="lna" href="https://github.com/Zutatensuppe" title="Zutatensuppe's Github profile">Zutatensuppe</a>'s custom JavaScript bookmarklet: a quick how-to guide is included both <a class="lna" href="https://github.com/Zutatensuppe/tetrio-preset">here</a> and <a class="lna" href="https://www.reddit.com/r/Tetris/comments/r3o5w3/preset_tool_for_custom_multiplayer_room_settings/">here</a>, alongside source code for the bookmarklet itself.</li>
-	<li><a class="lna" href="http://aznguy.com/" title="aznguy.mp4's homepage">aznguy.mp4</a>'s console solution: paste <a class="lna" href="https://gist.github.com/aznguymp4/e16c2b83d54ed47294129050df1102ee">this Github Gist</a> into your browser's devtools, accessible by using <code>F12</code> in most scenarios(including TETR.IO desktop), to dump your current room's properties into the console. This is a bit of a blunt solution, and it will include lots of extra definitions that would otherwise be assumed(as default settings), so only use this as an inbetween while creating <code>/set</code> presets from scratch!</li>
+	<li><a class="lna" href="https://craftxbox.com/" title="craftxbox's homepage">craftxbox</a> 的 <a class="lna" href="https://github.com/craftxbox/Autohost/" title="源代码仓库 -- 一般用户无需访问">Continued Autohost 项目</a> 有若干有关房间预设的指令。详请参考该 <a class="lna" href="https://ch.tetr.io/u/craftxbot">游戏内 bot</a> 的 <a class="lna" href="https://gitlab.com/Zudo/autohost/-/wikis/Get-Started">说明文档</a>。将你的房间设置完毕后，使用指令<code>!savepreset &lt;name&gt;</code> 来将其保存为一套预设。之后就可通过 <code>!preset &lt;name&gt;</code> 来加载该预设，或是通过 <code>!delpreset &lt;name&gt;</code> 来删除它。该 bot 同时自带一些预设，可通过 <code>!preset</code> 浏览。 
+	<li><a class="lna" href="https://github.com/Zutatensuppe" title="Zutatensuppe's Github profile">Zutatensuppe</a>的自定义 JavaScript 书签：英文教程及书签的源代码请见 <a class="lna" href="https://github.com/Zutatensuppe/tetrio-preset">该链接</a> and <a class="lna" href="https://www.reddit.com/r/Tetris/comments/r3o5w3/preset_tool_for_custom_multiplayer_room_settings/">该链接</a>。</li>
+	<li><a class="lna" href="http://aznguy.com/" title="aznguy.mp4 的主页">aznguy.mp4</a> 的 控制台解决方案：将<a class="lna" href="https://gist.github.com/aznguymp4/e16c2b83d54ed47294129050df1102ee">该 Github Gist</a>复制粘贴到浏览器的开发者工具（大多通过 <code>F12</code> 打开，包括 TETR.IO 桌面版），以将当前房间的设置导入控制台。该方法对游戏底层代码影响较大，且需要输入大量额外默认的定义，因此只适用于从零新建 <code>/set</code> 预设的情况。</li>
 </ul>
-<h2 id="manualset">Manual reference<span class="shorthand">manualset</span></h2>
-    <p>Here's some pointers if you'd like to avoid the automated solutions and instead create your own:</p>
+<h2 id="manualset">手动修改<span class="shorthand">manualset</span></h2>
+    <p>如果你想自己动手，丰衣足食，以下给出一些方法：</p>
 <ul>
-	<li><a class="lna" href="http://aznguy.com/" title="aznguy.mp4's homepage">aznguy.mp4</a>'s list of <code>/set</code> attributes: as pinned in #tetrio on the official TETR.IO Discord server, it's also available <a class="lna" href="https://tetrio.team2xh.net/?t=faq#commands">on Tenchi's FAQ</a>.</li>
-	<li><a class="lna" href="https://github.com/ZaptorZap/tetriofaq" title="ZaptorZap's github profile">ZaptorZap</a>'s <code>.txt</code> file of complete <code>/set</code> presets: it's always nice to learn by example, so here's a five for one deal! Download it <a class="lna" href="https://cdn.discordapp.com/attachments/763146093655359488/917684858099232798/tetrio_multiplayer_rule_presets.txt">here</a> (if you have suggestions for new presets, feel free to direct message ZaptorZap#0405 about them!)</li>
+	<li><a class="lna" href="http://aznguy.com/" title="aznguy.mp4 的主页">aznguy.mp4</a>给出了一张 <code>/set</code> 属性的列表。该列表同时挂在 TETR.IO 官方 Discord 服务器中 #tetrio 频道的置顶消息，你也可以通过 <a class="lna" href="https://tetrio.team2xh.net/?t=faq#commands">Tenchi 的 FAQ</a>找到这张列表。</li>
+	<li><a class="lna" href="https://github.com/ZaptorZap/tetriofaq" title="ZaptorZap's 的 GitHub 用户页">ZaptorZap</a>写了五种模拟不同环境的  <code>/set</code> 属性，可通过<a class="lna" href="https://cdn.discordapp.com/attachments/763146093655359488/917684858099232798/tetrio_multiplayer_rule_presets.txt">该链接</a>下载（若有新的建议，欢迎通过 ZaptorZap#0405 向其提出）。</li>
 </ul>
-	<p>As well as these resources, here's some more specific advice: note that <code>/set</code> presets <strong>are bound by TETR.IO's 512 character chat limit</strong>. If a <code>/set</code> preset calls for more than this limit, either split it up into two halves or try to truncate defaults settings out.</p>
+	<p>注意：TETR.IO 最多允许用户在聊天框输入512个字符，<code>/set</code> 指令也不例外。若指令过长，可将其拆成两半，或是删除默认指令。
 </section>
 
 <section id="ingeneral">
-<h1>In general</h1>
-    <p>Here are some otherwise hard to categorize mechanics. They're often misunderstood or not understood at all.</p>
+<h1>概括性机制</h1>
+    <p>以下是一些较难分类的机制。玩家经常会误解这些机制，甚至压根不了解它们。</p>
 
-<h2 id="fire">Fire<span class="shorthand">fire</span></h2>
-	<p>The "fire bar" effect triggers when you build up enough "fire points" to cause it. You can accumulate fire points by clearing a large spike, keeping a large back to back chain up, or, by koing people (koing people is the most effective way to build fire points.). You also steal fire points from the people you've ko'd; you can see how filled your ko'd user's fire bar was by looking at the little percentage sign next to their name. This whole system is entirely cosmetic, and can be disabled from the settings.</p>
+<h2 id="fire">火力全开<span class="shorthand">fire</span></h2>
+	<p>达到足够的“火力点”后，即可开启“火力全开”特效。瞬发攻击 Spike、背靠背连锁、击败他人都可积攒火力点，其中击败他人获得的火力点最多。击败他人将获得他积攒的火力点，KO 旁的百分数即通过击败获得的火力点数。整个“火力全开”系统只是游戏特效，并可在设置中关闭。</p>
 
-<h2 id="characters">Character System<span class="shorthand">characters</span></h2>
-	<p>First revealed in mid-November 2020 and developed since, the prototyped "Character System" is planned to be TETR.IO's "Beta" feature.</p>
+<h2 id="characters">角色系统<span class="shorthand">characters</span></h2>
+	<p>角色系统是将在 TETR.IO "Beta" 测试中加入的功能。该系统自2022年11月中旬开始开发，其雏形于同期公布。</p>
 <ul>
-	<li>For Character System conversation, please check out the <em>#Official Character System Thread</em> in <a class="lna" href="https://l.tetr.io/discord">the TETR.IO Discord server</a>. It forks off from #lobby.</li>
-	<li>Otherwise, <a class="lna" href="https://docs.google.com/document/d/1gRX1lorozF2NeJqgdkGyqrqkD-dD0wjYRimNQHGPj0w/edit">this supplementary FAQ</a> created by <a class="lna" href="https://2qb.carrd.co/" title="TwoQuantumBits's webpage">TwoQuantumBits</a> may be of use.</li>
-	<li>The above links to <a class="lna" href="https://docs.google.com/spreadsheets/d/1LjoLa3cXIp9vhmNoadk2PWRyFHFnYlOfnavs3Ga2gis/edit#gid=353436719">this in-depth, but slightly less dated, unofficial documentation</a> created by <a class="lna" href="https://www.youtube.com/channel/UC9Qal7IJul-6iC3YvYZ4Q1A" title="SigmaZero's linked YouTube page">SigmaZero</a> on the system.</li>
-	<li>If you're still skeptical to the validity of these pages, <a class="lna" href="https://characters.osk.sh/">here's documentation by osk himself</a>. <strong>Please note that this documentation is wildly out of date!</strong></li>
+	<li>相关讨论请移步 <a class="lna" href="https://l.tetr.io/discord">TETR.IO 官方 Discord 服务器</a> 中的 <em>#Official Character System Thread</em> 主题帖，该主题帖位于 #lobby 频道的分支。</li>
+	<li>此外，也可浏览由 <a class="lna" href="https://2qb.carrd.co/" title="TwoQuantumBits 的个人主页">TwoQuantumBits</a> 撰写的<a class="lna" href="https://docs.google.com/document/d/1gRX1lorozF2NeJqgdkGyqrqkD-dD0wjYRimNQHGPj0w/edit">补充性问答</a>。</li>
+	<li>以上两项都有指向<a class="lna" href="https://docs.google.com/spreadsheets/d/1LjoLa3cXIp9vhmNoadk2PWRyFHFnYlOfnavs3Ga2gis/edit#gid=353436719">这篇深入但有些过时的非官方文档</a>（作者：<a class="lna" href="https://www.youtube.com/channel/UC9Qal7IJul-6iC3YvYZ4Q1A" title="SigmaZero 的 YouTube 空间">SigmaZero</a>）。</li>
+	<li>若仍怀疑这些页面是否属实，请查看 <a class="lna" href="https://characters.osk.sh/">osk 亲自编写的这篇文档</a>。<strong>注意：该文档已严重过期。</strong></li>
 </ul>
 
-<h2 id="secretgrade">Badges<span class="shorthand">secretgrade</span></h2>
-	<p>Badges are simple graphics placed on a specific and registered user's userpage or player card signifying that user's achievements. If you're looking for your first badge, go for <a class="lna" href="https://tetris.wiki/TETR.IO_Badges#Secret_Grade">the "Secret Grade" badge</a>! You can attain this badge with the solo custom game mode, with gravity disabled. If you take your time, you'll likely get it first try!</p>
+<h2 id="secretgrade">徽章<span class="shorthand">secretgrade</span></h2>
+	<p>徽章展示于用户页与玩家信息卡，以小图片的形式体现玩家获得的成就。Zaptor 推荐新玩家首先尝试 <a class="lna" href="https://tetris.huijiwiki.com/p/3200">Secret Grade（秘密段位）徽章</a>。该徽章可在单人的自定义模式或多人的自定义房间下完成，玩家可通过调零重力降低难度。只要花上些许时间，获取这枚徽章还是比较容易的。</p>
 </section>
 
 <div style="margin-left: 12em;" class="disclaimer-footer">
 		© 2019—2023 osk.<br>
 		© 2021—2023 ZaptorZap.<br>
-		TETR.IO, the TETR.IO Logo, Tetra League, osk, and the osk Logo are trademarks of osk.<br>
-		All other trademarks are the property of their respective owners, trademark fair use doctrines apply.
+		© 2022—2023 xb2002b.<br>
+		TETR.IO 及其徽标、Tetra League、osk 及其徽标的各项权利由 osk 持有。<br>
+		其它商标的各项权利属于各自的持有者，它们在本 FAQ 仅供说明介绍使用，因此构成合理使用的条件。
 </div>
 </body></html>
