@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<title>ABOUT MECHANICS - TETR.IO</title>
+	<title>TETR.IO FAQ - 机制</title>
 	<link rel="stylesheet" type="text/css" href="res/style.css">
 	<meta charset="utf-8">
 	<meta name="author" content="TETR.IO's Frequently Asked Questions">
@@ -118,7 +118,7 @@
 
 <section id="tetraleague">
 <h1>TETRA LEAGUE</h1>
-    <p>TETRA LEAGUE（四联联盟、TL）是 TETR.IO 的排位模式，供所有玩家免费游玩，只需注册账号并达到 10 级即可参与。联盟的赛制十分简单——与相近技能水平的玩家展开单挑对战，但部分玩家可能会好奇该模式底层的工作原理与技术参数，本小节将就一些常见疑问展开解释。</p>
+    <p>TETRA LEAGUE（四联联盟、TL）是 TETR.IO 的排位模式，供所有玩家免费游玩，只需注册账户并达到 10 级即可参与。联盟的赛制十分简单——与相近技能水平的玩家展开单挑对战，但部分玩家可能会好奇该模式底层的工作原理与技术参数，本小节将就一些常见疑问展开解释。</p>
     <p><em>参见：</em></p>
 <ul>
     <li>Tenchi FAQ 的以下条目（英文）：
@@ -141,7 +141,7 @@
 	<p>偏差值会在连续七天未进行排位比赛后，以每天一点的固定速率增加。可在四连频道个人用户页 <code>https://ch.tetr.io/u/[username]</code> 中查看你是否处于“不活跃状态”。若你的 Glicko 段位分旁边有 <span style="color: #F22; font-family: HUN;">Ƿ</span> 的符号，则说明你有一周没打排位了。</p>
 
 <h2 id="rankcutoffs">段位划分<span class="shorthand">rankcutoffs</span></h2>
-	<p style="width: 25%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> 本小节提到的 Discord bot 都可通过 <a class="lna tiplink" href="https://l.tetr.io/discord">TETR.IO 官方 Discord</a> 使用，它们位于 <code>#bot-spam</code> 频道，或其下的 <code>#bbspam</code> 子频道.</p>
+	<p style="width: 25%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> 本小节提到的 Discord bot 都可通过 <a class="lna tiplink" href="https://l.tetr.io/discord">TETR.IO 官方 Discord</a> 使用，它们位于 <code>#bot-spam</code> 频道，或其下的 <code>#bbspam</code> 子频道。</p>
 	<p>若对 TETR.IO 各段位的分数要求感兴趣，可通过网页或 Discord 机器人等多种渠道查看。但请注意：段位分数要求实时变化，但大部分渠道都只是几个小时更新一次，因此<strong>不能</strong>反映即时、官方的数据。</p>
 	<p>下面给出提供段位分数要求的一些渠道：</p>
 <ul>
@@ -247,7 +247,7 @@
 <ul>
 	<li><a class="lna" href="https://craftxbox.com/" title="craftxbox's homepage">craftxbox</a> 的 <a class="lna" href="https://github.com/craftxbox/Autohost/" title="源代码仓库 -- 一般用户无需访问">Continued Autohost 项目</a> 有若干有关房间预设的指令。详请参考该 <a class="lna" href="https://ch.tetr.io/u/craftxbot">游戏内 bot</a> 的 <a class="lna" href="https://gitlab.com/Zudo/autohost/-/wikis/Get-Started">说明文档</a>。将你的房间设置完毕后，使用指令<code>!savepreset &lt;name&gt;</code> 来将其保存为一套预设。之后就可通过 <code>!preset &lt;name&gt;</code> 来加载该预设，或是通过 <code>!delpreset &lt;name&gt;</code> 来删除它。该 bot 同时自带一些预设，可通过 <code>!preset</code> 浏览。 
 	<li><a class="lna" href="https://github.com/Zutatensuppe" title="Zutatensuppe's Github profile">Zutatensuppe</a>的自定义 JavaScript 书签：英文教程及书签的源代码请见 <a class="lna" href="https://github.com/Zutatensuppe/tetrio-preset">该链接</a> and <a class="lna" href="https://www.reddit.com/r/Tetris/comments/r3o5w3/preset_tool_for_custom_multiplayer_room_settings/">该链接</a>。</li>
-	<li><a class="lna" href="http://aznguy.com/" title="aznguy.mp4 的主页">aznguy.mp4</a> 的 控制台解决方案：将<a class="lna" href="https://gist.github.com/aznguymp4/e16c2b83d54ed47294129050df1102ee">该 Github Gist</a>复制粘贴到浏览器的开发者工具（大多通过 <code>F12</code> 打开，包括 TETR.IO 桌面版），以将当前房间的设置导入控制台。该方法对游戏底层代码影响较大，且需要输入大量额外默认的定义，因此只适用于从零新建 <code>/set</code> 预设的情况。</li>
+	<li><a class="lna" href="http://aznguy.com/" title="aznguy.mp4 的主页">aznguy.mp4</a> 的 控制台解决方案：将<a class="lna" href="https://gist.github.com/aznguymp4/e16c2b83d54ed47294129050df1102ee">该 Github Gist</a> 复制粘贴到浏览器的开发者工具（大多通过 <code>F12</code> 打开，包括 TETR.IO 桌面版），以将当前房间的设置导入控制台。该方法对游戏底层代码影响较大，且需要输入大量额外默认的定义，因此只适用于从零新建 <code>/set</code> 预设的情况。</li>
 </ul>
 <h2 id="manualset">手动修改<span class="shorthand">manualset</span></h2>
     <p>如果你想自己动手，丰衣足食，以下给出一些方法：</p>
@@ -283,6 +283,6 @@
 		© 2021—2023 ZaptorZap.<br>
 		© 2022—2023 xb2002b.<br>
 		TETR.IO 及其徽标、Tetra League、osk 及其徽标的各项权利由 osk 持有。<br>
-		其它商标的各项权利属于各自的持有者，它们在本 FAQ 仅供说明介绍使用，因此构成合理使用的条件。
+		其它商标的各项权利属于各自的持有者，适用合理使用条款。
 </div>
 </body></html>
