@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>TETR.IO FAQ - 故障排查</title>
+	<link rel="stylesheet" type="text/css" href="res/style.css">
+	<meta charset="utf-8">
+	<meta name="author" content="TETR.IO's Frequently Asked Questions — Troubleshooting">
+	<meta name="description" content="Having technical issues with TETR.IO? Here's some common ones regarding the game and its desktop application, as well as solutions to the problems you may be facing.">
+	<meta property="og:image" content="https://repository-images.githubusercontent.com/430313654/7b437637-79c6-461a-8118-e6e921951c41">
+	<meta property="og:description" content="Having technical issues with TETR.IO? Here's some common ones regarding the game and its desktop application, as well as solutions to the problems you may be facing.">
+	<meta property="og:title" content="TETR.IO's Frequently Asked Questions">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:domain" value="tetrio.github.io">
+	<meta name="twitter:description" value="Having technical issues with TETR.IO? Here's some common ones regarding the game and its desktop application, as well as solutions to the problems you may be facing.">
+	<meta name="twitter:image" content="https://repository-images.githubusercontent.com/430313654/7b437637-79c6-461a-8118-e6e921951c41">
+	<meta name="twitter:url" value="https://tetrio.github.io/faq">
+	<style>
+		.dangerdanger {
+			background: repeating-linear-gradient(-45deg, #960E0E, #960E0E 10px, #750A0A 10px, #750A0A 20px);
+			text-align: center !important;
+			color: #FFF;
+			font-size: 1.1em;
+		}
+		.warnwarn {
+			background: repeating-linear-gradient(-45deg, #96580E, #96580E 10px, #75490A 10px, #75490A 20px);
+			text-align: center !important;
+			color: #FFF;
+		}
+
+		.vl h1, .vl h1, .vl h2 {
+			margin: 0;
+		}
+		.vl p {
+			margin: 0;
+		}
+
+		.typetag {
+			display: inline-block;
+			padding: 0.1em 0.3em;
+			border-radius: 3px;
+			box-shadow: 0px 2px 4px #0006;
+			background-color: #7782B1;
+		}
+		.typetag ~ span {
+			color: #7782B1;
+		}
+
+		.vl li b + span {
+			color: #7782B1;
+		}
+		.vl li b + span + span {
+			color: #F31E55;
+			font-weight: 900;
+		}
+
+		code {
+			font-family: 'PFW';
+		}
+
+		.warning {
+			background-color: #2A1B16;
+			color: #FFA904;
+			border-radius: 3px;
+			padding: 0.5em 1em;
+		}
+
+		.hint {
+			background-color: #162A1C;
+			color: #04FF5D;
+			border-radius: 3px;
+			padding: 0.5em 1em;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<a class="major_item pi_play" href="https://tetr.io/">PLAY</a>
+		<a class="major_item pi_ch" href="https://ch.tetr.io/">TETRA CHANNEL</a>
+		<a class="major_item pi_about active" href="https://tetr.io/about/">ABOUT</a>
+
+		<a class="major_item_r" target="_blank" title="Support TETR.IO or gift supporter status and get cool benefits!" href="https://l.tetr.io/support">ǹ</a>
+		<a class="major_item_r" target="_blank" title="View the TETR.IO issue tracker - report bugs and pitch ideas to improve TETR.IO" href="https://github.com/tetrio/issues">Ǻ</a>
+		<a class="major_item_r" target="_blank" title="Join the TETR.IO Discord - follow updates, give feedback and have fun" href="https://l.tetr.io/discord">ǻ</a>
+		<a class="major_item_r" target="_blank" title="Follow TETR.IO on Twitter - be the first to hear about updates" href="https://twitter.com/tetriogame">Ǽ</a>
+		<a class="major_item_r" target="_blank" title="Get TETR.IO Desktop" href="https://tetr.io/about/desktop">Ǿ</a>
+	</header>
+	<img id="major_logo" src="res/logo.png">
+
+<div id="toc">
+	<h1>目录</h1>
+	<a href="#performance">性能提升</a>
+	<a href="#config">配置</a>
+	<a href="#link" class="indent">TETR.IO ➔ DISCORD 账户链接</a>
+	<a href="#controllers" class="indent">控制器</a>
+	<a href="#desktop">TETR.IO 桌面版故障排查</a>
+	<a href="#dgpu" class="indent">指定图形处理器</a>
+	<a href="#installstuck" class="indent">无法安装桌面版</a>
+	<a href="#installpaths" class="indent">安装路径</a>
+	<a href="#machelp" class="indent">无法在 MACOS 上安装</a>
+	<a href="#replays">回放录像</a>
+	<a href="#ttrm" class="indent">私房回放</a>
+	<a href="#mobile">移动设备支持</a>
+</div>
+
+<span class="itemlist centeralign">
+<a class="topitem" href=".">首页</a>
+<a class="pageitem firstpageitem" href="./personalization.html">个性化</a>
+<a class="pageitem" href="./mechanics.html">机制</a>
+<a class="pageitem current" href="">故障排查</a>
+<a class="pageitem" href="./terminology.html">术语</a>
+</span>
+
+<section id="performance">
+<h1>性能提升</h1>
+	<p>相较于其他网页游戏，TETR.IO 力求带给玩家完美的客户端游戏体验。若使用配置较低的设备，使用默认设置游玩时可能会出现卡顿。别担心！本条 FAQ 将给出一些解决卡顿的方法，按对游戏体验的影响程度从小到大排列。</p>
+<h2>1. 使用 TETR.IO 桌面版</h2>
+	<p>TETR.IO 的桌面版针对性能做出了大幅优化，旨在为玩家提供<b>更优</b>的游戏体验。<a class="lna" href="../desktop/">点击该链接以下载</a>。</p>
+<h2>2. 换个浏览器</h2>
+	<p>Chrome 和 Chromium 内核的浏览器通常能比其它浏览器更流畅地运行游戏。如果你使用的是 Firefox 等其他浏览器，不妨试试 Chrome，游戏的流畅度将显著提升。（或者直接使用<a class="lna" href="../desktop/">桌面版</a>！）</p>
+<h2>3. 关闭节电模式</h2>
+	<p>大多笔记本默认开启节电模式，尤其是未接入电源时。检查是否将电源策略调为高性能模式，以保证游戏流畅运行。</p>
+<h2>4. 确保浏览器/TETR.IO 桌面版使用高性能图形处理器</h2>
+	<p>如果你的设备载有多块图形处理器（例如一块集成处理器 + 一块 NVIDIA 处理器），请确保浏览器或 TETR.IO 桌面版使用的是性能较高的那一块。为程序指定处理器的方式依设备而定，可前往 NVIDIA 控制面板（NVIDIA Control Panel）或 AMD Catalyst。在 Windows 10 及以上的操作系统中，也可通过系统的设置项指定处理器。</p>
+<h2>5. 在游戏中更改画面设置</h2>
+	<p>这可能是最直接的一种方式，但也不妨查查试试。下面给出几个较明显的设置：</p>
+<ul>
+	<li><b>GRAPHICS</b> &mdash; 控制画面的优劣。<b>调至 MINIMAL 以获得最佳体验。</b> 该选项将把一些子选项锁定至最佳值，这些选项在下方以星号（*）标记。</li>
+	<li><b>RENDER AT A LOW RESOLUTION*</b> &mdash; 控制游戏是否以低分辨率运行，勾选后游戏画面更模糊，但大幅减少了处理器的运算量。 <b>调至 ENABLE 以获得最佳体验。</b></li>
+	<li><b>WEBGL MODE</b> &mdash; 游戏选用的 WebGL 版本，若游戏中出现异常粒子或闪光，请尝试更低的版本。<b>调至 WEBGL 2 以获得最佳体验。</b></li>
+	<li><b>ACTION TEXT*</b> &mdash; 控制上屏的动作文本。虽然动作文本会占用大量处理器资源，但有些动作文本较为重要，禁用前请三思。<b>调至 OFF 以获得最佳体验。</b></li>
+	<li><b>PARTICLE COUNT*</b> &mdash; 控制上屏的粒子数量。<b>调至 10% 以获得最佳体验。</b></li>
+	<li><b>LESS PRECISION ON COUNTERS*</b> &mdash; 开启后，游戏内计数器的小数位将变少。<b>调至 ENABLE 以获得最佳体验。</b></li>
+	<li><b>NO BACKGROUND IN MENUS*</b> &mdash; 开启后，主菜单将不显示背景。 <b>调至 ENABLE 以获得最佳体验。</b></li>
+	<li><b>ALWAYS SIMPLIFY MULTIPLAYER THUMBNAILS*</b> &mdash; 开启后， 其它玩家的场地将以较低画质展现。<b>调至 ENABLE 以获得最佳体验。</b></li>
+	<li><b>SHOW DUELS SIDE-BY-SIDE*</b> &mdash; 开启后，单挑将并排显示。 <b>调至 DISABLE 以获得最佳体验。</b></li>
+	<li><b>HIDE CHAT WHEN INGAME*</b> &mdash; 开启后，游戏内将不显示聊天框。<b>调至 ENABLE 以获得最佳体验。</b></li>
+	<li><b>WARN ME WHEN I'M IN DANGER*</b> &mdash; 开启后，若方块堆较高，框体将变红。 <b>调至 DISABLE 以获得最佳体验。</b></li>
+	<li><b>STEREO*</b> &mdash; 控制立体声效果。 <b>调至 0% (OFF) 以获得最佳体验。</b></li>
+	<li><b>DISABLE SOUND ENTIRELY</b> &mdash; 开启后，游戏不会播放音乐或音效。游戏会更流畅，但缺点也显而易见。<b>调至 ENABLE 以获得最佳体验。</b></li>
+</ul>
+<h2>6. 关闭无关程序和/或浏览器标签</h2>
+	<p>不要在挂着四款游戏的同时游玩 TETR.IO，而应将本游戏归为独立的客户端游戏，而不是简单的浏览器标签。因此，请给游戏留下足够多的运行资源，好让他充分利用电脑性能。</p>
+<h2>7. 将游戏窗口拉小，或调低分辨率</h2>
+	<p>若将游戏窗口拉小，或调低显示器分辨率，游戏需要的算力将降低。这将显著提升游戏的流畅度。</p>
+<h2>这些我都试过了！！！</h2>
+	<p>如果试过了以上所有方式，TETR.IO 还是卡得不行，那么你的电脑配置似乎不足以游玩本游戏。如果需要进一步的帮助，请通过 Windows+R 打开“运行”，输入 "dxdiag"，将所有数据保存到 .txt 文本文档中。附上这份文档，向社区成员或是 osk 本人反馈。</p>
+	<p>希望以上内容能帮到你。</p>
+</section>
+
+<section id="config">
+<h1>配置</h1>
+	<p>有时你可能只想提升 TETR.IO 的性能，或是使用其它控制设备游玩，本章节将解决相关问题。</p>
+
+<h2 id="link">TETR.IO ➔ Discord 账户连接<span class="shorthand">link</span></h2>
+	<p>若想将你的 Discord 账户连接到 TETR.IO，请前往 CONFIG > ACCOUNT > CONNECTIONS（见下图）：</p>
+<div class="gallery centeralign" style="margin-bottom: 1em"><img width="693" height="690" src="res/faq/troubleshooting/link-discord.gif"></div>
+<p style="width: 30%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> 若使用 TETR.IO 桌面版，但在连接账户时出现问题，请转而使用网页版，后者出错的概率更小</p>
+	<p>该连接能协助 <strong>Hiyajo Maho#2356</strong> 等 Discord bot 找到你的账号、为 TETR.IO 的支持者（Supporter）授予相应的 Discord 身份，同时辅助<a class="lna" href="https://insider-applications.osk.sh/">角色系统申请表格</a>的账户验证。在购买或被赠予支持者后，相应的 Discord 身份会在不久后由 @TETR.IO 机器人自动授予（若该机器人在线）。</p>
+
+<h2 id="controllers">手柄<span class="shorthand">controllers</span></h2>
+    <p>TETR.IO 全面支持手柄操作，<em>包括不同动作的手柄震动</em>。不管你使用的是<a class="lna" href="https://tetr.io/about/desktop/">TETR.IO 桌面版</a>还是现代浏览器，你都可以使用手柄流畅游玩 TETR.IO，只需将手柄连上电脑即可。TETR.IO 能够自动识别 Xbox、Switch Pro 手柄，并为它们自动设置键位。对于 Playstation 手柄，可在 Guideline 或 WASD 两套预设键位中选择。若成功连接，每次启动游戏并按下手柄按键时，右下角都会弹出手柄连接的提示。</p>
+	<p><b>若手柄未能正确识别，</b>或使用自定义按键设置，可在游戏内手动设置键位：</p>
+<div class="gallery"><img width="948" height="360" src="res/faq/troubleshooting/controller.gif"></div>
+    <p>若手柄无法正常连接，可尝试注意以下问题：</p>
+<ul>
+	<li>首先，确保未启用有键位映射功能的软件，<strong>包括 Steam、JoyToKey</strong>；</li>
+	<li>确保你使用的是<strong>唯一</strong>连接至电脑的控制器。TETR.IO 只接受来自“端口 1”的控制器（可通过其他方法解决这一问题）。若已连接其他控制器，在断开后需要重启电脑才能生效。</li>
+</ul>
+    <p>若以上两个方法均未能解决问题，以下是两个针对不同手柄的软件：</p>
+<ul>
+    <li><strong>PS4/PS5&#39;s DualShock</strong> 系列：使用 <a class="lna" href="https://github.com/Ryochan7/DS4Windows/releases/tag/v3.0.18">DS4Windows</a></li>
+    <li><strong>Nintendo Switch&#39;s Joy-Con 或 Pro 手柄</strong>：使用 <a class="lna" href="https://github.com/Davidobot/BetterJoy/releases">BetterJoy&#39;s &quot;ShowAsXInput&quot; function</a></li>
+</ul>
+</section>
+
+<section style="padding-bottom: 11em;" id="desktop"> <!-- only solution i have to that gallery of the MacOS error going out of view... -->
+<h1>TETR.IO Desktop Specific Troubleshooting</h1>
+<figure>
+    <blockquote><p style="font-family: HUN;">TETR.IO 桌面版比浏览器快成百上千倍！<br>无限制帧率、启动快人一步、连接 Discord 账户，所有功能尽在 <a class="lna" href="https://tetr.io/about/desktop/">the <strong>官方</strong>桌面客户端</a>！</p></blockquote>
+    <figcaption>—— 游戏内横幅广告，2021年</figcaption>
+</figure>
+
+<h3 id="dgpu">指定图形处理器<span class="shorthand">dgpu</span></h3>
+	<p>若感觉笔记本电脑中 TETR.IO 网页版或桌面版游戏很卡，请确保 Windows 使用的是“独立图形处理器”，而不是牺牲画质换取功效的“集成图形处理器”<!--独显和集显？-->。下面给出一张为游戏指定图形处理器的大图： </p>
+	<blockquote>在Windows 11 中：
+		<ol>
+			<li>于开始菜单打开设置（或使用 <code>Win + I</code> 快捷键）；</li>
+			<li>搜索“屏幕”设置项，点击“相关设置”中的“显示卡”设置项；</li>
+			<li>选择“添加桌面应用”。点击浏览，在弹出的窗口中输入 TETR.IO 桌面版或浏览器的启动路径；</li>
+			<li>选中桌面版或浏览器的 <code>.exe</code> 文件；</li>
+			<li>选中 TETR.IO 或浏览器。点击选项，再点击“高性能”，完成。</li>
+		</ol></blockquote>
+<img style="width: 100%;" src="res/faq/troubleshooting/dgpu.png">
+<ul>
+    <li>TETR.IO 桌面版 <code>.exe</code> 文件的路径：<code>%localappdata%\\Programs\\tetrio-desktop\\resources</code></li>
+    <li><code>Chrome.exe</code> 的路径：<code>%programfiles%\\Google\\Chrome\\Application\\chrome.exe</code>、 <code>%programfiles(x86)%\\Google\\Chrome\\Application\\chrome.exe</code>、或 <code>%localappdata%\\Google\\Chrome\\Application\\chrome.exe</code></li>
+    <li><code>Firefox.exe</code> 的路径： <code>%programfiles(x86)%\\Mozilla Firefox\\</code> or <code>%programfiles%\\Mozilla Firefox\\</code>后两者的路径根据你使用 32 位系统或 64 位系统决定。</li>
+</ul>
+
+<h3 id="installstuck">无法安装桌面版<span class="shorthand">installstuck</span></h3>
+	<p>若无法通过安装 TETR.IO 桌面版，请尝试以下步骤：下载一款压缩软件（如 <a class="lna" href="https://www.7-zip.org/download.html">7zip</a>，手动解压游戏文件，详细过程请看下图（用压缩软件打开 <code>.exe</code> 文件，然后把 <code>app-64.7z</code> 解压到任意文件夹即可）：</p>
+<div class="gallery centeralign"><img width="805" height="540" src="res/faq/troubleshooting/manual-install.gif"></div>
+
+<h3 id="machelp">无法在 macOS 上安装<span class="shorthand">machelp</span></h3>
+<div style="float: right;" class="gallery"><img width="450" height="651" src="res/faq/troubleshooting/macos-error.png"><p style="margin-top: -4em" class="description">只有右键单击或 “control 单击” TETR.IO 桌面版安装文件时，另外两个按钮才会出现。</p></div>
+	<p>尝试在 macOS 上安装 TETR.IO 时，系统会弹出信息，警告程序的开发者未认证。若从正规渠道，也即<a class="lna" href="https://tetr.io/about/desktop">https://tetr.io/about/desktop</a>官方下载链接获取安装程序，可忽略该警告。要想安装，只需<strong>右击</strong>或<strong>control - 单击</strong>安装文件，在弹出的窗口中选择“打开”（Open）即可。</p>
+	<p>若仍无法安装，请参阅苹果官网给出的<a class="lna" href="https://support.apple.com/zh-cn/HT202491">这篇指南</a>。</p><!--不知道中文 macOS 上这些设置项的翻译，只能丢这个链接了-->
+
+<h3 id="installpaths">安装路径<span class="shorthand">installpaths</span></h3>
+	<p>使用 TETR.IO 桌面版会在以下路径创建文件夹，使用 <code>Windows + R</code>，在弹出的窗口复制以下路径：</p>
+<ul>
+    <li><code>%localappdata%\Programs\tetrio-desktop</code>
+    （含有 <code>.exe</code> 文件与 <code>Resources</code> 文件夹）
+    <li><code>%localappdata%\tetrio-desktop-updater</code>
+	（你所下载的 TETR.IO 桌面版对应版本的安装程序，运行可抹去你对游戏做出的任何修改）</li>
+    <li><code>%appdata%\TETR.IO</code>
+	（有一名为 “logs” 的空文件夹）
+    <li><code>%appdata%\tetrio-desktop</code>
+    （包含 Electron 相关的浏览器文件，如 <code>Cache</code> 与 <code>Local Storage</code>）</li>
+</ul>
+</section>
+
+<section id="replays">
+<h1>回放录像</h1>
+	<p>加载回放的方式很简单，但很多玩家不知道如何操作。本章节将解决这一问题。<em>参见：</em></p>
+<ul>
+    <li>Tenchi 的 FAQ 中的这些条目：</li><ul>
+        <li><a class="lna" href="https://tetrio.team2xh.net/?t=faq#replays-location">Where replays are saved</a></li>
+        <li><a class="lna" href="https://tetrio.team2xh.net/?t=faq#replays-saved">When replays are saved</a></li>
+        <li><a class="lna" href="https://tetrio.team2xh.net/?t=faq#replay-icons">Visual language within the replay timelines</a></li></ul>
+</ul>
+<hr>
+    <p>要观看本地保存的录像，只需将资源管理器中的录像文件拖拽至 TETR.IO 窗口中即可。若游戏无法加载录像，请保证回放命名正确，尤其是以下几点：</p>
+<ul>
+    <li>单人游戏的回放使用 <code>.ttr</code> 后缀；</li>
+    <li>多人游戏的回放使用 <code>.ttrm</code> 后缀；</li>
+    <li>自定义模式的预设使用 <code>.ttp</code> 后缀；</li>
+    <li>设置配置文件使用 <code>.ttc</code> 后缀。</li>
+</ul>
+<div class="gallery"><img width="806" height="411" src="res/faq/troubleshooting/import-ttr.gif"><hr>
+<img width="340" height="213" src="res/faq/troubleshooting/import-ttrm.gif"></div>
+	<p>若加载 <code>.ttrm</code> 文件，点击任意一局以查看那一局的回放。</p>
+
+<h2 id="ttrm">私房回放<span class="shorthand">ttrm</span></h2>
+<p style="width: 30%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> 若跳过了结算页，未保存回放，可在聊天框输入 <code>/savereplay</code> 指令保存上一场游戏的录像。</p>
+	<p>私房回放的要求较为严苛，所以，就算没有“下载回放”的按钮，也不要怪自己。具体而言，只有满足以下所有条件的对局才会生成回放：</p>
+<ul>
+	<li>必须是一对一的对局，也即参与游戏的玩家<strong>必须</strong>只有两个；</li>
+	<li>你的客户端<em>必须</em>启用 LOW 或更高的画质；</li>
+	<li>若使用 MINIMAL 画质，<a class="lna" href="https://tetr.io/about/patchnotes/#chlog_5_2_0">则<strong>必须</strong>开启 "SHOW DUELS SIDE BY SIDE" 选项</a>；</li>
+	<li><strong>必须</strong>打完一整场比赛（比如 FT5），从比赛的开始到结束；</li>
+	<li>当然，<strong>还必须</strong>在结算页面下载回放文件，下载按钮位于第二名得分条的右下角。</li>
+</ul>
+</section>
+
+<section id="mobile">
+<h1>移动设备支持</h1>
+    <p>首先需要澄清一下谣言，TETR.IO 永远不会正式支持移动设备。</p>
+    <figure>
+	<blockquote>It's a lot of effort, for a userbase who I am not particularly interested in reaching (.io game players are already very detached from the game, mobile gaming is even more so). I might do it in the future, but for now I do not have particular interest in the mobile gaming sphere</blockquote>
+	<blockquote>furthermore, for now I am not interested in targeting a mobile demographic. tetr.io is already enough of an "io game", don't need to literally make it a mobile game.</blockquote>
+	<blockquote>i do not plan on mobile support or an app, period<br>
+	i don't want to attract that type of audience, and the amount of ui hell needed to make it work is not worth it</blockquote>
+	参考译文：
+	<blockquote>工作量太大，而且我对手游用户没兴趣（.io 游戏用户群体本身就离我们这款游戏很远了，手游玩家只会更远）。我未来可能会考虑支持移动设备，但我现在对手游圈没有足够的兴趣。</blockquote>
+	<blockquote>而且现在我不对手游玩家感兴趣。tetr.io 作为一款 “io 游戏” 已经足够了，没必要再把它做成一款手机游戏。</blockquote>
+	<blockquote>我不打算支持移动设备，或是开发 app，句号<br>我不想吸引那些玩家，而且开发手游所需的 ui 重写量太大了，根本不值得</blockquote>
+	<figcaption>— osk，发表于不同时间点 <sup><a class="lna" href="https://github.com/tetrio/issues/issues/950#issuecomment-1135885047">[1]</a> <a class="lna" href="https://github.com/tetrio/issues/issues/425#issuecomment-1020742445">[2]</a></sup></figcaption>
+    </figure>
+	<p>话虽如此，玩家依然可以<strong>在移动设备上游玩 TETR.IO</strong>。请注意：iOS 设备的兼容性<a class="lna" href="https://tetr.io/about/patchnotes/#chlog_6_2_1">有待测试</a>。欢迎玩家使用其他安卓设备测试游玩，但由于移动设备不受官方支持，游戏的兼容性不受保障。</p>
+	<p>要在手机登移动设备上游玩，只需通过浏览器访问 <a class="lna" href="https://tetr.io/">https://tetr.io/</a>即可。游玩的最大问题在于如何控制，你可以使用蓝牙或 USB 连接输入设备，在配置中设置键位。</p>
+	<p>或者，使用 JavaScript 代码制成的书签来支持<strong>屏幕点按操作</strong>。可访问<a class="lna" href="https://you.have.fail/ed/at/tetrio/touchcontrols/">这个网站</a>获取更多帮助。</p>
+</section>
+
+<div style="margin-left: 12em;" class="disclaimer-footer">
+		© 2019—2023 osk.<br>
+		© 2021—2023 ZaptorZap, Zudo, Dr Ocelot.<br>
+		© 2022—2023 xb2002b.<br>
+		TETR.IO 及其徽标、Tetra League、osk 及其徽标的各项权利由 osk 持有。<br>
+		其它商标的各项权利属于各自的持有者，适用合理使用条款。
+</div>
+</body></html>
