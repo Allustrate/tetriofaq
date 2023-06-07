@@ -2,7 +2,7 @@
 <html><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<title>TETR.IO FAQ - 机制</title>
-	<link rel="stylesheet" type="text/css" href="res/style.css">
+	<link rel="stylesheet" type="text/css" href="../res/style.css">
 	<meta charset="utf-8">
 	<meta name="author" content="TETR.IO's Frequently Asked Questions">
 	<meta name="description" content="Feeling confused about TETR.IO's various various mechanics? More comprehensive details about the systems are included in this FAQ!">
@@ -84,7 +84,7 @@
 		<a class="major_item_r" target="_blank" title="Follow TETR.IO on Twitter - be the first to hear about updates" href="https://twitter.com/tetriogame">Ǽ</a>
 		<a class="major_item_r" target="_blank" title="Get TETR.IO Desktop" href="https://tetr.io/about/desktop">Ǿ</a>
 	</header>
-	<img id="major_logo" src="res/logo.png">
+	<img id="major_logo" src="../res/logo.png">
 
 <div id="toc">
 	<h1>目录</h1>
@@ -133,7 +133,7 @@
 </ul>
 
 <h2 id="rd">评分偏差值<span class="shorthand">rd</span></h2>
-	<p style="width: 30%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> 评分偏差值是 <a class="lna tiplink" href="https://en.wikipedia.org/wiki/Glicko_rating_system">Glicko-2</a> 的一次扩展，其中 Glicko-2 正是 TETRA LEAGUE 使用的评分系统。Glicko 起初用于国际象棋比赛，后被众多游戏与组织用作评分系统。</p>
+	<p style="width: 30%;" class="tip-blue"><img class="ii" src="../res/faq/tip.png"> 评分偏差值是 <a class="lna tiplink" href="https://en.wikipedia.org/wiki/Glicko_rating_system">Glicko-2</a> 的一次扩展，其中 Glicko-2 正是 TETRA LEAGUE 使用的评分系统。Glicko 起初用于国际象棋比赛，后被众多游戏与组织用作评分系统。</p>
 	<p>RD 是游戏中 Glicko 评分中<strong>±</strong>之后的数值，其全程是<strong>Rating Deviation</strong>，也即偏差值。偏差值体现了“你 Glicko-2 评分不确定的程度，越低越好。”<span class="unemphasis">（游戏内文本）</span></p>
 
 	<p>一场排位赛后，偏差值<em>通常</em>会降低，但也有<em>增高</em>的情况。据 osk，偏差值不会低于60，但也有一些玩家达到过58的偏差值。偏差值在达到 349 之后就不会继续增长。</p>
@@ -141,7 +141,7 @@
 	<p>偏差值会在连续七天未进行排位比赛后，以每天一点的固定速率增加。可在四连频道个人用户页 <code>https://ch.tetr.io/u/[username]</code> 中查看你是否处于“不活跃状态”。若你的 Glicko 段位分旁边有 <span style="color: #F22; font-family: HUN;">Ƿ</span> 的符号，则说明你有一周没打排位了。</p>
 
 <h2 id="rankcutoffs">段位划分<span class="shorthand">rankcutoffs</span></h2>
-	<p style="width: 25%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> 本小节提到的 Discord bot 可通过 <a class="lna tiplink" href="https://l.tetr.io/discord">TETR.IO 官方 Discord</a> 使用，它们位于 <code>#bot-spam</code> 频道。</p>
+	<p style="width: 25%;" class="tip-blue"><img class="ii" src="../res/faq/tip.png"> 本小节提到的 Discord bot 可通过 <a class="lna tiplink" href="https://l.tetr.io/discord">TETR.IO 官方 Discord</a> 使用，它们位于 <code>#bot-spam</code> 频道。</p>
 	<p>若对 TETR.IO 各段位的分数要求感兴趣，可通过网页或 Discord 机器人等多种渠道查看。但请注意：段位分数要求实时变化，但大部分渠道都只是几个小时更新一次，因此<strong>不能</strong>反映即时、官方的数据。</p>
 	<p>下面给出提供段位分数要求的一些渠道：</p>
 <ul>
@@ -162,7 +162,7 @@
 
 <section id="handling">
 <h1>操作参数</h1>
-	<p style="width: 25%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> <b>提示：</b> 您可随时通过 <span style="font-family: HUN;">HANDLING</span> 小节右上角的 <span style="font-family: HUN;">TEST</span> 按钮测试当前的操作参数。</p>
+	<p style="width: 25%;" class="tip-blue"><img class="ii" src="../res/faq/tip.png"> <b>提示：</b> 您可随时通过 <span style="font-family: HUN;">HANDLING</span> 小节右上角的 <span style="font-family: HUN;">TEST</span> 按钮测试当前的操作参数。</p>
     <p>操作参数控制玩家持续按键时，方块的移动属性。玩家可在 <span style="font-family: HUN;">CONFIG</span> 设置选单中 <span style="font-family: HUN;">HANDLING</span> 部分调解它们。下面将简要介绍这些参数。
     <p><em>参见：</em></p>
 <ul>
@@ -189,8 +189,8 @@
 <h2 id="dcd">DAS Cut Delay<span class="shorthand">dcd</span></h2>
 	<p><code>[D]</code>AS <code>[C]</code>ut <code>[D]</code>elay（DAS 打断延迟，越高越慢，若为零则不生效）：作为一项较复杂的实验性参数，高端玩家很少特意使用 DCD。DAS 打断将在以下情况下生效，打断期间内，DAS 无法充能：</p>
 <div style="display: grid; grid-template-columns: repeat(2, 3fr);align-items: center;" class="gallery">
-<img height="222" style="margin-right: 1em;" src="res/faq/mechanics/dcd-1.gif">
-<img height="239" style="margin-left: 1em;" src="res/faq/mechanics/dcd-2.gif">
+<img height="222" style="margin-right: 1em;" src="../res/faq/mechanics/dcd-1.gif">
+<img height="239" style="margin-left: 1em;" src="../res/faq/mechanics/dcd-2.gif">
 <p class="description" style="border-top: #0060FF solid 2px;border-right: #0060FF solid 2px;margin-top: 4px;">方块旋转</p>
 <p class="description" style="border-top: #0060FF solid 2px;margin-top: 4px;">新方块生成</p>
 </div>
@@ -209,7 +209,7 @@
 
 <h3 id="sonicdrop">瞬降<span class="shorthand">sonicdrop</span></h3>
 	<p>想要完成“不锁定方块的硬降”，比如快速 T-Spin，就把 SDF 拉到∞吧！这样，一按下软降，方块就会立马接地！</p>
-<img src="res/faq/mechanics/sonicdrop.png" style="width: 100%;">
+<img src="../res/faq/mechanics/sonicdrop.png" style="width: 100%;">
 </section>
 
 <section id="srs">
@@ -224,14 +224,14 @@
 
 <h2 id="zspins">S-Spin 与 Z-Spin<span class="shorthand">zspins</span></h2>
 <div style="float: right;display: grid; grid-template-columns: repeat(2, 3fr);align-items: center;" class="gallery">
-<img align="right" src="res/faq/mechanics/s-spin.gif">
-<img align="right" src="res/faq/mechanics/z-spin.gif">
+<img align="right" src="../res/faq/mechanics/s-spin.gif">
+<img align="right" src="../res/faq/mechanics/z-spin.gif">
 <p class="description" style="border-top: #0060FF solid 2px;border-right: #0060FF solid 2px;margin-top: 4px;">左转、左转<br>右转、右转</p>
 <p class="description" style="border-top: #0060FF solid 2px;margin-top: 4px;">右转、右转<br>左转、左转</p>
 </div>
 	<p>由于 SRS 在诞生时，设计者并没有考虑太多，只是给“对称”下了几个反常的定义，新玩家可能较难理解 S-Spin 与 Z-Spin，。正是这些定义让他们常常无法完成 S-Spin 与 Z-Spin。</p>
 	<p><strong>如果没有墙，完成 Z-Spin</strong> 需要从初始朝向<strong>逆时针</strong>旋转一次，软降，然后再用<strong>逆时针</strong>把 Z 块塞进去。反之，若两边都有墙（如 gif 的后半部分），就需要<strong>顺时针</strong>旋转两次了。
-	<p style="float: unset;width: 45%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> <b>Tip:</b> 若使用默认键位，那么 <strong>Z-Spin</strong> 就需要按两次 <strong>"z"</strong> 键。
+	<p style="float: unset;width: 45%;" class="tip-blue"><img class="ii" src="../res/faq/tip.png"> <b>Tip:</b> 若使用默认键位，那么 <strong>Z-Spin</strong> 就需要按两次 <strong>"z"</strong> 键。
 
 	<p><strong>如果没有墙，完成 S-Spin</strong> 需要从初始朝向<strong>顺时针</strong>旋转一次，软降，然后再用<strong>顺时针</strong>把 S 块塞进去。 <span calss="unemphasis">（大多数新手只会使用上键顺时针单项旋转，所以 S-Spin 对新玩家可能“更简单”。）</span><br />
 	如果两边都有墙（如 gif 的后半部分），就需要调换旋转方向，<em><strong>逆时针</strong>旋转两次</em>。</p>
@@ -242,7 +242,7 @@
 	<p>游戏中 <code>/set</code> 指令有多重使用场合，大部分由社区玩家开发。了其中主要指令的用法，这样你就不用在游戏中花时间打一大串指令了。</p>
 
 <h2 id="setgen">自动填充<span class="shorthand">setgen</span></h2>
-<p style="float: right; width: 35%;" class="tip-blue"><img class="ii" src="res/faq/tip.png"> TETR.IO 为自定义房间的房主提供了若干预设。房主只需前往 <span style="font-family: HUN;">GAME</span> 选项卡中的第一个选项，在六个预设中选择其一即可。玩家现无法创建自定义的预设，但这项功能可能会在将来加入游戏。
+<p style="float: right; width: 35%;" class="tip-blue"><img class="ii" src="../res/faq/tip.png"> TETR.IO 为自定义房间的房主提供了若干预设。房主只需前往 <span style="font-family: HUN;">GAME</span> 选项卡中的第一个选项，在六个预设中选择其一即可。玩家现无法创建自定义的预设，但这项功能可能会在将来加入游戏。
 <p>首先将介绍若干自动填充的方法，按对游戏底层代码的影响程度排列，从低到高：</p>
 <ul>
 	<li><a class="lna" href="https://craftxbox.com/" title="craftxbox's homepage">craftxbox</a> 的 <a class="lna" href="https://github.com/craftxbox/Autohost/" title="源代码仓库 -- 一般用户无需访问">Continued Autohost 项目</a> 有若干有关房间预设的指令。详请参考该 <a class="lna" href="https://ch.tetr.io/u/craftxbot">游戏内 bot</a> 的 <a class="lna" href="https://gitlab.com/Zudo/autohost/-/wikis/Get-Started">说明文档</a>。将你的房间设置完毕后，使用指令<code>!savepreset &lt;name&gt;</code> 来将其保存为一套预设。之后就可通过 <code>!preset &lt;name&gt;</code> 来加载该预设，或是通过 <code>!delpreset &lt;name&gt;</code> 来删除它。该 bot 同时自带一些预设，可通过 <code>!preset</code> 浏览。 
