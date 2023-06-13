@@ -118,7 +118,7 @@
 
 <section id="tetraleague">
 <h1>TETRA LEAGUE</h1>
-    <p>TETRA LEAGUE（四联联盟、TL）是 TETR.IO 的排位模式，供所有玩家免费游玩，只需注册账户并达到 10 级即可参与。联盟的赛制十分简单——与相近技能水平的玩家展开单挑对战，但部分玩家可能会好奇该模式底层的工作原理与技术参数，本小节将就一些常见疑问展开解释。</p>
+    <p>TETRA LEAGUE（四连联盟、TL）是 TETR.IO 的排位模式，供所有玩家免费游玩，注册账户并达到 10 级即可参与。联盟的赛制十分简单——与相近技能水平的玩家展开单挑对战。部分玩家可能会好奇该模式底层的工作原理与技术参数，本小节将就一些常见疑问展开解释。</p>
     <p><em>参见：</em></p>
 <ul>
     <li>Tenchi FAQ 的以下条目（英文）：
@@ -138,7 +138,7 @@
 
 	<p>一场排位赛后，偏差值<em>通常</em>会降低，但也有<em>增高</em>的情况。据 osk，偏差值不会低于60，但也有一些玩家达到过58的偏差值。偏差值在达到 349 之后就不会继续增长。</p>
 
-	<p>偏差值会在连续七天未进行排位比赛后，以每天一点的固定速率增加。可在四连频道个人用户页 <code>https://ch.tetr.io/u/[username]</code> 中查看你是否处于“不活跃状态”。若你的 Glicko 段位分旁边有 <span style="color: #F22; font-family: HUN;">Ƿ</span> 的符号，则说明你有一周没打排位了。</p>
+	<p>偏差值会在连续七天未进行排位比赛后，以每天一点的固定速率增加。可在四连频道个人用户页 <code>https://ch.tetr.io/u/[username]</code> 中查看你是否处于“不活跃状态”。若你的 Glicko 段位分旁边有 <span style="color: #F22; font-family: HUN;">Ƿ</span> 的符号，则说明你有连续七天没打排位了。</p>
 
 <h2 id="rankcutoffs">段位划分<span class="shorthand">rankcutoffs</span></h2>
 	<p style="width: 25%;" class="tip-blue"><img class="ii" src="../res/faq/tip.png"> 本小节提到的 Discord bot 可通过 <a class="lna tiplink" href="https://l.tetr.io/discord">TETR.IO 官方 Discord</a> 使用，它们位于 <code>#bot-spam</code> 频道。</p>
@@ -149,7 +149,7 @@
 	<li><a class="lna" href="https://cankyre.github.io/tetostats/">Cankyre 的 TetoStats</a></li>
 	<li><b style="color: #2E9BE8;">Ðimentio#0001</b> 的 <em style="color: #1FD83A;">Hiyajo Maho#2356</em> <span class="unemphasis">（统计平均数据，每小时更新一次，可通过<a class="lna tiplink" href="https://www.qcgames.org/bot">该链接</a>邀请到自己的服务器。）</span></li>
 	<ul>
-		<li>在恰当的频道发送<code>>tetoranks</code> 可通过<code>>tetoranks &lt;x></code>指定查询任意段位的平均数据，<span class="unemphasis">其中 &lt;x> 是想要查询的段位。</span></li>
+		<li>在恰当的频道发送<code>>tetoranks</code>。<span class="unemphasis">（可通过<code>>tetoranks &lt;x></code>指定查询任意段位的平均数据，其中 <code>&lt;x></code> 是想要查询的段位）</span></li>
 	</ul>
 	<!--<li><em style="color: #FFD800;">bbEngine#8989</em> <span class="unemphasis">（私人 bot，在 #bbspam 子频道下使用，使用<a class="lna tiplink" href="https://gist.github.com/ZaptorZap/e8881170180f7d61b9efe71aee288861">该脚本</a>查询段位划分。）<span></li>
 	<ul>
@@ -246,14 +246,14 @@
 <p>首先将介绍若干自动填充的方法，按对游戏底层代码的影响程度排列，从低到高：</p>
 <ul>
 	<li><a class="lna" href="https://craftxbox.com/" title="craftxbox's homepage">craftxbox</a> 的 <a class="lna" href="https://github.com/craftxbox/Autohost/" title="源代码仓库 -- 一般用户无需访问">Continued Autohost 项目</a> 有若干有关房间预设的指令。详请参考该 <a class="lna" href="https://ch.tetr.io/u/craftxbot">游戏内 bot</a> 的 <a class="lna" href="https://gitlab.com/Zudo/autohost/-/wikis/Get-Started">说明文档</a>。将你的房间设置完毕后，使用指令<code>!savepreset &lt;name&gt;</code> 来将其保存为一套预设。之后就可通过 <code>!preset &lt;name&gt;</code> 来加载该预设，或是通过 <code>!delpreset &lt;name&gt;</code> 来删除它。该 bot 同时自带一些预设，可通过 <code>!preset</code> 浏览。 
-	<li><a class="lna" href="https://github.com/Zutatensuppe" title="Zutatensuppe's Github profile">Zutatensuppe</a>的自定义 JavaScript 书签：英文教程及书签的源代码请见 <a class="lna" href="https://github.com/Zutatensuppe/tetrio-preset">该链接</a> and <a class="lna" href="https://www.reddit.com/r/Tetris/comments/r3o5w3/preset_tool_for_custom_multiplayer_room_settings/">该链接</a>。</li>
+	<li><a class="lna" href="https://github.com/Zutatensuppe" title="Zutatensuppe's Github profile">Zutatensuppe</a> 的自定义 JavaScript 书签：英文教程及书签的源代码请见 <a class="lna" href="https://github.com/Zutatensuppe/tetrio-preset">该链接</a> and <a class="lna" href="https://www.reddit.com/r/Tetris/comments/r3o5w3/preset_tool_for_custom_multiplayer_room_settings/">该链接</a>。</li>
 	<li><a class="lna" href="http://aznguy.com/" title="aznguy.mp4 的主页">aznguy.mp4</a> 的 控制台解决方案：将<a class="lna" href="https://gist.github.com/aznguymp4/e16c2b83d54ed47294129050df1102ee">该 Github Gist</a> 复制粘贴到浏览器的开发者工具（大多通过 <code>F12</code> 打开，包括 TETR.IO 桌面版），以将当前房间的设置导入控制台。该方法对游戏底层代码影响较大，且需要输入大量额外默认的定义，因此只适用于从零新建 <code>/set</code> 预设的情况。</li>
 </ul>
 <h2 id="manualset">手动修改<span class="shorthand">manualset</span></h2>
-    <p>如果你想自己动手，丰衣足食，以下给出一些方法：</p>
+    <p>如果你想自己动手，以下给出一些方法：</p>
 <ul>
-	<li><a class="lna" href="http://aznguy.com/" title="aznguy.mp4 的主页">aznguy.mp4</a>给出了一张 <code>/set</code> 属性的列表。该列表同时挂在 TETR.IO 官方 Discord 服务器中 #tetrio 频道的置顶消息，你也可以通过 <a class="lna" href="https://tetrio.team2xh.net/?t=faq#commands">Tenchi 的 FAQ</a>找到这张列表。</li>
-	<li><a class="lna" href="https://github.com/ZaptorZap/tetriofaq" title="ZaptorZap's 的 GitHub 用户页">ZaptorZap</a>写了五种模拟不同环境的  <code>/set</code> 属性，可通过<a class="lna" href="https://cdn.discordapp.com/attachments/763146093655359488/917684858099232798/tetrio_multiplayer_rule_presets.txt">该链接</a>下载（若有新的建议，欢迎通过 ZaptorZap#0405 向其提出）。</li>
+	<li><a class="lna" href="http://aznguy.com/" title="aznguy.mp4 的主页">aznguy.mp4</a> 给出了一张 <code>/set</code> 属性的列表。该列表同时挂在 TETR.IO 官方 Discord 服务器中 #tetrio 频道的置顶消息，你也可以通过 <a class="lna" href="https://tetrio.team2xh.net/?t=faq#commands">Tenchi 的 FAQ</a>找到这张列表。</li>
+	<li><a class="lna" href="https://github.com/ZaptorZap/tetriofaq" title="ZaptorZap's 的 GitHub 用户页">ZaptorZap </a>写了五种模拟不同环境的  <code>/set</code> 属性，可通过<a class="lna" href="https://cdn.discordapp.com/attachments/763146093655359488/917684858099232798/tetrio_multiplayer_rule_presets.txt">该链接</a>下载（若有新的建议，欢迎通过 ZaptorZap#0405 向其提出）。</li>
 </ul>
 	<p>注意：TETR.IO 最多允许用户在聊天框输入512个字符，<code>/set</code> 指令也不例外。若指令过长，可将其拆成两半，或是删除默认指令。
 </section>
@@ -263,10 +263,10 @@
     <p>以下是一些较难分类的机制。玩家经常会误解这些机制，甚至压根不了解它们。</p>
 
 <h2 id="fire">火力全开<span class="shorthand">fire</span></h2>
-	<p>达到足够的“火力点”后，即可开启“火力全开”特效。瞬发攻击 Spike、背靠背连锁、击败他人都可积攒火力点，其中击败他人获得的火力点最多。击败他人将获得他积攒的火力点，KO 旁的百分数即通过击败获得的火力点数。整个“火力全开”系统只是游戏特效，并可在设置中关闭。</p>
+	<p>达到足够的“火力点”后，即可开启“火力全开”（Fire Bar）特效。瞬发攻击 Spike、背靠背连锁、击败他人都可积攒火力点，其中击败他人获得的火力点最多。击败他人将获得他积攒的火力点，KO 旁的百分数即通过击败获得的火力点数。整个“火力全开”系统只是游戏特效，玩家可在设置中关闭。</p>
 
 <h2 id="characters">角色系统<span class="shorthand">characters</span></h2>
-	<p>角色系统是将在 TETR.IO "Beta" 测试中加入的功能。该系统自2022年11月中旬开始开发，其雏形于同期公布。</p>
+	<p>角色系统（Character System）是将在 TETR.IO 下一个阶段的 "Beta" 测试中加入的功能。该系统自2022年11月中旬开始开发，其雏形于同期公布。</p>
 <ul>
 	<li>相关讨论请移步 <a class="lna" href="https://l.tetr.io/discord">TETR.IO 官方 Discord 服务器</a> 中的 <em>#Official Character System Thread</em> 主题帖，该主题帖位于 #lobby 频道的分支。</li>
 	<li>此外，也可浏览由 <a class="lna" href="https://2qb.carrd.co/" title="TwoQuantumBits 的个人主页">TwoQuantumBits</a> 撰写的<a class="lna" href="https://docs.google.com/document/d/1gRX1lorozF2NeJqgdkGyqrqkD-dD0wjYRimNQHGPj0w/edit">补充性问答</a>。</li>
@@ -275,7 +275,7 @@
 </ul>
 
 <h2 id="secretgrade">徽章<span class="shorthand">secretgrade</span></h2>
-	<p>徽章展示于用户页与玩家信息卡，以小图片的形式体现玩家获得的成就。Zaptor 推荐新玩家首先尝试 <a class="lna" href="https://tetris.huijiwiki.com/p/3200">Secret Grade（秘密段位）徽章</a>。该徽章可在单人的自定义模式或多人的自定义房间下完成，玩家可通过调零重力降低难度。只要花上些许时间，获取这枚徽章还是比较容易的。</p>
+	<p>徽章（Badge）展示于用户页与玩家信息卡，以小图片的形式体现玩家获得的成就。Zaptor 推荐新玩家首先尝试 <a class="lna" href="https://tetris.huijiwiki.com/p/3200">Secret Grade（秘密段位）徽章</a>。该徽章可在单人的自定义模式或多人的自定义房间下完成，玩家可通过调零重力降低难度。只要花上些许时间，获取这枚徽章还是比较容易的。</p>
 </section>
 
 <div style="margin-left: 12em;" class="disclaimer-footer">
